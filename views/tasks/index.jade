@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 Your Tasks
+  #{title}
+  -if(typeof flash!= 'undefined ')
+      include ../mixins/flash-messages
+        p reaching here #{typeof flash}
+      mixin flash-messages(flash)
+
+  -if(docs.length)
+    
+   table 
+    tr
+     th Task 
+      each task in docs
+       tr
+        td #{task.task}
+        td 
+         a(href="/tasks/#{task.id}/edit" , class='btn primary') Edit 
+        td 
+          form(method='post',action='/del/'+task.id)
+            button(type='Submit' , class='btn') Delete
+        
+
+  -else
+   p You dont have any tasks
+
+
+  p 
+    
+    a(href='tasks/new' , class='btn btn-primary') Add a Task 

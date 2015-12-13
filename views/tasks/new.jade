@@ -1,0 +1,16 @@
+extends layout
+block content
+	h1 New Task view 
+	#{title}
+
+	form(method='post',action='/tasks')
+		fieldset
+			legend Add a task
+			div.clearfix
+				label Task
+				div.input
+					input(name='task' ,  class='xlarge')
+			div.actions
+				br
+				input(type="Submit" , value = "Save", class='btn btn-primary')
+				button(type='Reset' , class='btn') Cancel	    

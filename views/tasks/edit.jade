@@ -1,0 +1,18 @@
+extends layout
+block content
+	h1 Edit Task View 
+	#{title}
+
+	form(method='post', action='/tasks/'+task.id)
+		input(name='_method', value='PUT', type='hidden')
+
+		fieldset
+			legend Editing task
+			div.clearfix
+				label Task
+				div.input
+					input(name='task',class='xlarge',value="#{task.task}")
+			div.actions
+				br
+				input(type="Submit" , value = "Save", class='btn btn-primary')
+				button(type='Reset' , class='btn') Cancel	    

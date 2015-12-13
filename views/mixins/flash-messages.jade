@@ -1,0 +1,11 @@
+mixin flash-messages(flash)
+	-if(typeof flash!='undefined')
+		p reaching in flash
+		-if(flash.warning)
+			div.alert-message.warning
+				p = flash.warning
+				p here
+		-if(flash.info)
+			div(daa-alert='alert').alert-message.success
+				p = flash.info
+				p here2
